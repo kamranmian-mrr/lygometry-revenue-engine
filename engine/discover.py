@@ -26,7 +26,7 @@ def parse_feed(name, url):
                 "source": name,
                 "title": title,
                 "link": link,
-                "description": description if description else "",
+                "description": desc[:1000],
                 "captured_at": datetime.now(timezone.utc).isoformat()
             })
     return rows
