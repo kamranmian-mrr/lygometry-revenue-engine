@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SIGNALS_FILE = ROOT / "data" / "signals.csv"
 OPPORTUNITIES_FILE = ROOT / "data" / "opportunities.csv"
 MAP_FILE = ROOT / "data" / "opportunity_signal_map.csv"
+UNCLASSIFIED_FILE = ROOT / "data" / "unclassified_signals.csv"
 
 REQUIRED_SIGNAL_COLUMNS = {
     "signal_id", "source", "discovery_theme", "title", "link",
@@ -32,6 +33,11 @@ OPPORTUNITY_FIELDS = [
 
 MAP_FIELDS = [
     "opportunity_id", "signal_id", "match_method", "match_score", "added_at"
+]
+
+UNCLASSIFIED_FIELDS = [
+    "signal_id", "source", "discovery_theme", "title",
+    "target_customer_detected", "relevance_score", "reason", "recorded_at"
 ]
 
 MIN_RELEVANCE_SCORE = 6
@@ -118,8 +124,9 @@ SECONDARY_TOPIC_RULES = [
 ]
 
 AVIATION_COLLISIONS = {
-    "air india", "airline", "aircraft", "flight", "airport", "aviation",
-    "crash", "landing", "passenger", "helicopter", "chopper", "drug test",
+    "airasia", "air india", "airline", "aircraft", "airplane", "plane",
+    "flight", "airport", "aviation", "crash", "landing", "passenger",
+    "helicopter", "chopper", "drug test",
     "alcohol use", "pilot caused", "flying into fog",
 }
 BUSINESS_PILOT_TERMS = {
@@ -276,16 +283,42 @@ def independent_source(signal):
     return clean(signal.get("source")).casefold()
 
 
-def split_large_general_clusters(preliminary):
+def split_large_general_clusters(preliminary, recorded_at):
+    """Split large general clusters and quarantine unmatched residuals."""
     final = defaultdict(list)
+    unclassified = []
+
     for (theme, customer, topic), signals in preliminary.items():
         if topic != "general" or len(signals) < GENERAL_SPLIT_MIN_SIZE:
             final[(theme, customer, topic)].extend(signals)
             continue
+
+        secondary_groups = defaultdict(list)
         for signal in signals:
-            secondary = secondary_topic_for(signal)
-            final[(theme, customer, secondary)].append(signal)
-    return final
+            secondary_groups[secondary_topic_for(signal)].append(signal)
+
+        for secondary, secondary_signals in secondary_groups.items():
+            if secondary != "general":
+                final[(theme, customer, secondary)].extend(secondary_signals)
+                continue
+
+            # Control v3: do not publish a large residual catch-all opportunity.
+            if len(secondary_signals) >= GENERAL_SPLIT_MIN_SIZE:
+                for signal in secondary_signals:
+                    unclassified.append({
+                        "signal_id": clean(signal.get("signal_id")),
+                        "source": clean(signal.get("source")),
+                        "discovery_theme": theme,
+                        "title": clean(signal.get("title")),
+                        "target_customer_detected": clean(signal.get("target_customer_detected")),
+                        "relevance_score": to_int(signal.get("relevance_score")),
+                        "reason": "no_secondary_topic_match",
+                        "recorded_at": recorded_at,
+                    })
+            else:
+                final[(theme, customer, "general")].extend(secondary_signals)
+
+    return final, unclassified
 
 
 def score_cluster(signals, customer, theme):
@@ -396,7 +429,7 @@ def build_outputs(signals, existing):
             customer = normalize_customer(signal.get("target_customer_detected"))
             preliminary[(theme, customer, topic_key_for(signal))].append(signal)
 
-    clusters = split_large_general_clusters(preliminary)
+    clusters, unclassified = split_large_general_clusters(preliminary, generated_at)
     opportunities, mappings = [], []
 
     for (theme, customer, topic), cluster_signals in sorted(clusters.items()):
@@ -478,7 +511,8 @@ def build_outputs(signals, existing):
         reverse=True,
     )
     mappings.sort(key=lambda row: (row["opportunity_id"], row["signal_id"]))
-    return opportunities, mappings
+    unclassified.sort(key=lambda row: (row["discovery_theme"], row["signal_id"]))
+    return opportunities, mappings, unclassified
 
 
 def write_csv(path, fieldnames, rows):
@@ -493,22 +527,25 @@ def main():
     try:
         signals, malformed = load_signals()
         existing = load_existing_opportunities()
-        opportunities, mappings = build_outputs(signals, existing)
+        opportunities, mappings, unclassified = build_outputs(signals, existing)
         write_csv(OPPORTUNITIES_FILE, OPPORTUNITY_FIELDS, opportunities)
         write_csv(MAP_FILE, MAP_FIELDS, mappings)
+        write_csv(UNCLASSIFIED_FILE, UNCLASSIFIED_FIELDS, unclassified)
     except (OSError, ValueError, FileNotFoundError) as error:
         print(f"ERROR: {error}")
         return 1
 
     status_counts = Counter(row["status"] for row in opportunities)
-    print("=== Opportunity Candidate Engine v2 ===")
+    print("=== Opportunity Candidate Engine v3 ===")
     print(f"Signals read: {len(signals)}")
     print(f"Malformed signal rows skipped: {malformed}")
     print(f"Opportunity candidates written: {len(opportunities)}")
     print(f"Opportunity-signal mappings written: {len(mappings)}")
+    print(f"Residual general signals quarantined: {len(unclassified)}")
     print("Status counts: " + ", ".join(f"{k}={v}" for k, v in sorted(status_counts.items())))
     print(f"Output: {OPPORTUNITIES_FILE}")
     print(f"Output: {MAP_FILE}")
+    print(f"Output: {UNCLASSIFIED_FILE}")
     return 0
 
 
