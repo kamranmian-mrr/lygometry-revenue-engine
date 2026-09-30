@@ -1,6 +1,5 @@
 import csv
 import hashlib
-import math
 import re
 import statistics
 import sys
@@ -15,102 +14,46 @@ OPPORTUNITIES_FILE = ROOT / "data" / "opportunities.csv"
 MAP_FILE = ROOT / "data" / "opportunity_signal_map.csv"
 
 REQUIRED_SIGNAL_COLUMNS = {
-    "signal_id",
-    "source",
-    "discovery_theme",
-    "title",
-    "link",
-    "description",
-    "published_at",
-    "captured_at",
-    "points",
-    "comments",
-    "problem_language",
-    "purchase_language",
-    "target_customer_detected",
-    "recency_days",
-    "source_count",
-    "duplicate_theme_count",
-    "relevance_score",
+    "signal_id", "source", "discovery_theme", "title", "link",
+    "description", "published_at", "captured_at", "points", "comments",
+    "problem_language", "purchase_language", "target_customer_detected",
+    "recency_days", "source_count", "duplicate_theme_count", "relevance_score",
 }
 
 OPPORTUNITY_FIELDS = [
-    "opportunity_id",
-    "opportunity_title",
-    "discovery_theme",
-    "problem_statement",
-    "target_customer",
-    "topic_key",
-    "signal_count",
-    "independent_source_count",
-    "latest_published_at",
-    "median_recency_days",
-    "problem_evidence_count",
-    "purchase_evidence_count",
-    "customer_evidence_count",
-    "highest_signal_score",
-    "average_signal_score",
-    "evidence_links",
-    "representative_signal_ids",
-    "opportunity_score",
-    "confidence_level",
-    "status",
-    "created_at",
-    "updated_at",
+    "opportunity_id", "opportunity_title", "discovery_theme",
+    "problem_statement", "target_customer", "topic_key", "signal_count",
+    "independent_source_count", "latest_published_at", "median_recency_days",
+    "problem_evidence_count", "purchase_evidence_count",
+    "customer_evidence_count", "highest_signal_score", "average_signal_score",
+    "evidence_links", "representative_signal_ids", "opportunity_score",
+    "confidence_level", "status", "created_at", "updated_at",
 ]
 
 MAP_FIELDS = [
-    "opportunity_id",
-    "signal_id",
-    "match_method",
-    "match_score",
-    "added_at",
+    "opportunity_id", "signal_id", "match_method", "match_score", "added_at"
 ]
 
 MIN_RELEVANCE_SCORE = 6
+MIN_CLUSTER_SIZE = 2
 MAX_EVIDENCE_LINKS = 5
 MAX_SIGNAL_IDS = 10
-MIN_CLUSTER_SIZE = 2
-
-ALLOWED_EXISTING_STATUSES = {
-    "discovered",
-    "monitor",
-    "ready_for_review",
-    "experiment_candidate",
-    "rejected",
-}
+GENERAL_SPLIT_MIN_SIZE = 4
 
 CUSTOMER_NORMALIZATION = {
-    "small business": "SME",
-    "small businesses": "SME",
-    "smb": "SME",
-    "smbs": "SME",
-    "sme": "SME",
-    "smes": "SME",
-    "msme": "SME",
-    "msmes": "SME",
-    "startup": "Startup",
-    "startups": "Startup",
-    "government": "Government",
-    "local government": "Government",
-    "public sector": "Government",
-    "government department": "Government",
-    "government departments": "Government",
-    "law firm": "Legal",
-    "law firms": "Legal",
-    "legal department": "Legal",
-    "legal departments": "Legal",
-    "higher education": "Education",
-    "education": "Education",
-    "university": "Education",
-    "universities": "Education",
-    "healthcare": "Healthcare",
-    "developer": "Developer",
-    "developers": "Developer",
-    "enterprise": "Enterprise",
-    "technology leadership": "Technology leadership",
-    "finance leadership": "Finance leadership",
-    "agriculture": "Agriculture",
+    "small business": "SME", "small businesses": "SME", "smb": "SME",
+    "smbs": "SME", "sme": "SME", "smes": "SME", "msme": "SME",
+    "msmes": "SME", "startup": "Startup", "startups": "Startup",
+    "government": "Government", "local government": "Government",
+    "public sector": "Government", "government department": "Government",
+    "government departments": "Government", "law firm": "Legal",
+    "law firms": "Legal", "legal department": "Legal",
+    "legal departments": "Legal", "higher education": "Education",
+    "education": "Education", "university": "Education",
+    "universities": "Education", "healthcare": "Healthcare",
+    "developer": "Developer", "developers": "Developer",
+    "enterprise": "Enterprise", "technology leadership": "Technology leadership",
+    "finance leadership": "Finance leadership", "agriculture": "Agriculture",
 }
 
 THEME_TITLES = {
@@ -138,14 +81,13 @@ THEME_PROBLEM_PHRASES = {
 }
 
 STOPWORDS = {
-    "a", "about", "after", "all", "an", "and", "are", "as", "at", "be",
-    "before", "best", "beyond", "but", "by", "can", "do", "does", "for",
-    "from", "get", "gets", "getting", "guide", "has", "have", "help", "how",
-    "i", "in", "into", "is", "it", "its", "more", "most", "new", "not",
-    "of", "on", "or", "our", "out", "over", "review", "should", "software",
-    "some", "than", "that", "the", "their", "these", "this", "to", "tool",
-    "tools", "top", "use", "using", "vs", "what", "when", "which", "who",
-    "why", "with", "without", "you", "your", "2024", "2025", "2026",
+    "about", "after", "all", "and", "are", "before", "best", "beyond", "but",
+    "can", "does", "for", "from", "get", "gets", "getting", "guide", "has",
+    "have", "help", "how", "into", "its", "more", "most", "new", "not",
+    "our", "out", "over", "review", "should", "software", "some", "than",
+    "that", "the", "their", "these", "this", "tool", "tools", "top", "use",
+    "using", "what", "when", "which", "who", "why", "with", "without", "you",
+    "your", "2024", "2025", "2026",
 }
 
 TOPIC_RULES = [
@@ -163,11 +105,27 @@ TOPIC_RULES = [
     ("productivity", {"productivity", "efficiency", "operations", "operational", "delivery"}),
 ]
 
-QUERY_COLLISION_PATTERNS = {
-    "failure_signals": [
-        re.compile(r"\bpilot\b.*\b(drug|alcohol|airline|aircraft|flight|crash|landing|fog|aviation)\b", re.I),
-        re.compile(r"\b(airline|aircraft|flight|crash|aviation)\b.*\bpilot\b", re.I),
-    ]
+# Control 5: narrower secondary classes for large otherwise-general clusters.
+SECONDARY_TOPIC_RULES = [
+    ("integration_adoption", {"integration", "integrate", "adoption", "implementation", "deployment", "rollout"}),
+    ("customer_research", {"customer", "customers", "survey", "feedback", "research", "insight", "insights"}),
+    ("procurement_selection", {"procurement", "vendor", "vendors", "selection", "buying", "purchase", "purchasing"}),
+    ("workforce_skills", {"workforce", "employee", "employees", "skills", "training", "talent", "jobs"}),
+    ("service_delivery", {"service", "services", "delivery", "support", "operations"}),
+    ("infrastructure_planning", {"infrastructure", "planning", "project", "projects", "portfolio"}),
+    ("digital_transformation", {"digital", "transformation", "modernization", "modernisation", "platform"}),
+    ("risk_failure", {"failure", "failed", "errors", "error", "broken", "risk", "problem"}),
+]
+
+AVIATION_COLLISIONS = {
+    "air india", "airline", "aircraft", "flight", "airport", "aviation",
+    "crash", "landing", "passenger", "helicopter", "chopper", "drug test",
+    "alcohol use", "pilot caused", "flying into fog",
+}
+BUSINESS_PILOT_TERMS = {
+    "technology pilot", "software pilot", "ai pilot", "business pilot",
+    "trial deployment", "proof of concept", "poc", "implementation",
+    "rollout", "project pilot", "workplace ai",
 }
 
 
@@ -182,13 +140,6 @@ def clean(value):
 def to_int(value, default=0):
     try:
         return max(0, int(float(clean(value))))
-    except (TypeError, ValueError):
-        return default
-
-
-def to_float(value, default=0.0):
-    try:
-        return float(clean(value))
     except (TypeError, ValueError):
         return default
 
@@ -218,13 +169,13 @@ def normalize_customer(value):
     parts = [part.strip() for part in re.split(r"[;,|/]", clean(value)) if part.strip()]
     if not parts:
         return "General business"
-    normalized = []
+    output = []
     for part in parts:
         key = re.sub(r"\s+", " ", part.casefold())
-        customer = CUSTOMER_NORMALIZATION.get(key, part.strip().title())
-        if customer not in normalized:
-            normalized.append(customer)
-    return "; ".join(normalized[:3])
+        normalized = CUSTOMER_NORMALIZATION.get(key, part.title())
+        if normalized not in output:
+            output.append(normalized)
+    return "; ".join(output[:3])
 
 
 def tokenize(text):
@@ -232,45 +183,55 @@ def tokenize(text):
     return [word for word in words if len(word) > 2 and word not in STOPWORDS]
 
 
-def topic_key_for(signal):
-    text = " ".join(
-        [clean(signal.get("title")), clean(signal.get("description")), clean(signal.get("target_customer_detected"))]
-    )
-    tokens = tokenize(text)
-    token_set = set(tokens)
+def classify_with_rules(text, rules):
+    token_set = set(tokenize(text))
     scored = []
-    for key, vocabulary in TOPIC_RULES:
+    for key, vocabulary in rules:
         score = len(token_set & vocabulary)
         if score:
             scored.append((score, key))
-    if scored:
-        scored.sort(key=lambda item: (-item[0], item[1]))
-        return scored[0][1]
-    return "general"
+    if not scored:
+        return "general"
+    scored.sort(key=lambda item: (-item[0], item[1]))
+    return scored[0][1]
+
+
+def topic_key_for(signal):
+    text = " ".join([
+        clean(signal.get("title")), clean(signal.get("description")),
+        clean(signal.get("target_customer_detected")),
+    ])
+    return classify_with_rules(text, TOPIC_RULES)
+
+
+def secondary_topic_for(signal):
+    text = f"{clean(signal.get('title'))} {clean(signal.get('description'))}"
+    return classify_with_rules(text, SECONDARY_TOPIC_RULES)
 
 
 def is_query_collision(signal):
-    theme = clean(signal.get("discovery_theme"))
-    text = f"{clean(signal.get('title'))} {clean(signal.get('description'))}"
-    return any(pattern.search(text) for pattern in QUERY_COLLISION_PATTERNS.get(theme, []))
+    if clean(signal.get("discovery_theme")) != "failure_signals":
+        return False
+    text = f"{clean(signal.get('title'))} {clean(signal.get('description'))}".casefold()
+    aviation_hit = any(term in text for term in AVIATION_COLLISIONS)
+    business_hit = any(term in text for term in BUSINESS_PILOT_TERMS)
+    return aviation_hit and not business_hit
 
 
 def eligible(signal):
-    score = to_int(signal.get("relevance_score"))
-    if score < MIN_RELEVANCE_SCORE:
+    if to_int(signal.get("relevance_score")) < MIN_RELEVANCE_SCORE:
         return False
     if not clean(signal.get("signal_id")) or not clean(signal.get("title")):
         return False
     if is_query_collision(signal):
         return False
     theme = clean(signal.get("discovery_theme"))
-    has_evidence = (
+    return (
         clean(signal.get("problem_language")).casefold() == "yes"
         or clean(signal.get("purchase_language")).casefold() == "yes"
         or bool(clean(signal.get("target_customer_detected")))
         or theme != "legacy_unclassified"
     )
-    return has_evidence
 
 
 def stable_id(*parts):
@@ -286,13 +247,12 @@ def load_signals():
         missing = REQUIRED_SIGNAL_COLUMNS - set(reader.fieldnames or [])
         if missing:
             raise ValueError("Missing required signal columns: " + ", ".join(sorted(missing)))
-        rows = []
-        malformed = 0
+        rows, malformed = [], 0
         for row in reader:
             if row.get(None):
                 malformed += 1
-                continue
-            rows.append(row)
+            else:
+                rows.append(row)
     return rows, malformed
 
 
@@ -308,13 +268,24 @@ def load_existing_opportunities():
 
 
 def independent_source(signal):
-    source = clean(signal.get("source"))
     title = clean(signal.get("title"))
-    if title and " - " in title:
+    if " - " in title:
         publisher = title.rsplit(" - ", 1)[-1].strip()
         if publisher:
             return publisher.casefold()
-    return source.casefold()
+    return clean(signal.get("source")).casefold()
+
+
+def split_large_general_clusters(preliminary):
+    final = defaultdict(list)
+    for (theme, customer, topic), signals in preliminary.items():
+        if topic != "general" or len(signals) < GENERAL_SPLIT_MIN_SIZE:
+            final[(theme, customer, topic)].extend(signals)
+            continue
+        for signal in signals:
+            secondary = secondary_topic_for(signal)
+            final[(theme, customer, secondary)].append(signal)
+    return final
 
 
 def score_cluster(signals, customer, theme):
@@ -322,36 +293,40 @@ def score_cluster(signals, customer, theme):
     independent_count = len({independent_source(signal) for signal in signals})
     problem_count = sum(clean(s.get("problem_language")).casefold() == "yes" for s in signals)
     purchase_count = sum(clean(s.get("purchase_language")).casefold() == "yes" for s in signals)
-    scored = [to_int(s.get("relevance_score")) for s in signals]
+    signal_scores = [to_int(s.get("relevance_score")) for s in signals]
     recencies = [to_int(s.get("recency_days")) for s in signals if clean(s.get("recency_days"))]
 
-    if count >= 13:
-        breadth = 5
-    elif count >= 8:
-        breadth = 4
-    elif count >= 5:
-        breadth = 3
-    elif count >= 3:
-        breadth = 2
-    elif count == 2:
-        breadth = 1
-    else:
-        breadth = 0
-
-    problem_ratio = problem_count / count if count else 0
-    purchase_ratio = purchase_count / count if count else 0
+    breadth = 5 if count >= 13 else 4 if count >= 8 else 3 if count >= 5 else 2 if count >= 3 else 1
+    problem_ratio = problem_count / count
+    purchase_ratio = purchase_count / count
     problem_strength = 3 if problem_ratio >= 0.6 else 2 if problem_ratio >= 0.35 else 1 if problem_count else 0
     purchase_strength = 3 if purchase_ratio >= 0.5 else 2 if purchase_ratio >= 0.25 else 1 if purchase_count else 0
 
     median_recency = int(statistics.median(recencies)) if recencies else 9999
-    recency_score = 3 if median_recency <= 30 else 2 if median_recency <= 90 else 1 if median_recency <= 365 else 0
+    # Control 3: stronger positive/negative recency treatment.
+    if median_recency <= 30:
+        recency_adjustment = 3
+    elif median_recency <= 90:
+        recency_adjustment = 2
+    elif median_recency <= 180:
+        recency_adjustment = 1
+    elif median_recency <= 365:
+        recency_adjustment = 0
+    elif median_recency <= 730:
+        recency_adjustment = -2
+    else:
+        recency_adjustment = -4
+
     customer_score = 0 if customer == "General business" else 2 if ";" not in customer else 1
     theme_score = 2 if theme != "legacy_unclassified" else 0
-    quality_ratio = sum(bool(clean(s.get("description"))) and bool(parse_timestamp(s.get("published_at"))) for s in signals) / count
+    quality_ratio = sum(
+        bool(clean(s.get("description"))) and bool(parse_timestamp(s.get("published_at")))
+        for s in signals
+    ) / count
     quality_score = 2 if quality_ratio >= 0.7 else 1 if quality_ratio >= 0.35 else 0
 
-    total = breadth + problem_strength + purchase_strength + recency_score + customer_score + theme_score + quality_score
-    return min(20, total), median_recency, independent_count, problem_count, purchase_count, scored
+    total = breadth + problem_strength + purchase_strength + recency_adjustment + customer_score + theme_score + quality_score
+    return max(0, min(20, total)), median_recency, independent_count, problem_count, purchase_count, signal_scores
 
 
 def confidence_for(signal_count, independent_count, problem_count, customer):
@@ -362,10 +337,17 @@ def confidence_for(signal_count, independent_count, problem_count, customer):
     return "low"
 
 
-def status_for(score, confidence, existing_status=""):
+def status_for(score, confidence, topic, customer, customer_count, median_recency, existing_status=""):
     if existing_status in {"experiment_candidate", "rejected"}:
         return existing_status
-    if score >= 13 and confidence in {"emerging", "supported"}:
+    # Controls 1, 2 and 3: broad, anonymous or stale candidates cannot be review-ready.
+    can_be_ready = (
+        topic != "general"
+        and customer != "General business"
+        and customer_count >= 1
+        and median_recency <= 180
+    )
+    if can_be_ready and score >= 13 and confidence in {"emerging", "supported"}:
         return "ready_for_review"
     if score >= 8:
         return "monitor"
@@ -374,63 +356,54 @@ def status_for(score, confidence, existing_status=""):
 
 def pretty_topic(topic):
     labels = {
-        "ai_adoption": "AI Adoption",
-        "workflow_automation": "Workflow Automation",
-        "data_governance": "Data Governance",
-        "spreadsheets": "Spreadsheet Risk",
-        "roi_cost": "ROI and Cost Control",
-        "alternatives": "Affordable Alternatives",
-        "sales_growth": "Sales and Growth",
-        "government_services": "Government Services",
-        "education_skills": "Education and Skills",
-        "healthcare": "Healthcare",
-        "finance_operations": "Finance Operations",
-        "productivity": "Operational Productivity",
+        "ai_adoption": "AI Adoption", "workflow_automation": "Workflow Automation",
+        "data_governance": "Data Governance", "spreadsheets": "Spreadsheet Risk",
+        "roi_cost": "ROI and Cost Control", "alternatives": "Affordable Alternatives",
+        "sales_growth": "Sales and Growth", "government_services": "Government Services",
+        "education_skills": "Education and Skills", "healthcare": "Healthcare",
+        "finance_operations": "Finance Operations", "productivity": "Operational Productivity",
+        "integration_adoption": "Integration and Adoption", "customer_research": "Customer Research",
+        "procurement_selection": "Procurement and Selection", "workforce_skills": "Workforce Skills",
+        "service_delivery": "Service Delivery", "infrastructure_planning": "Infrastructure Planning",
+        "digital_transformation": "Digital Transformation", "risk_failure": "Operational Risk and Failure",
         "general": "General Need",
     }
     return labels.get(topic, topic.replace("_", " ").title())
 
 
 def build_title(theme, customer, topic):
-    topic_label = pretty_topic(topic)
     if customer != "General business":
-        return f"{customer}: {topic_label}"
-    return f"{THEME_TITLES.get(theme, 'Opportunity')}: {topic_label}"
+        return f"{customer}: {pretty_topic(topic)}"
+    return f"{THEME_TITLES.get(theme, 'Opportunity')}: {pretty_topic(topic)}"
 
 
 def build_problem_statement(theme, customer, topic, signal_count, independent_count):
     phrase = THEME_PROBLEM_PHRASES.get(theme, "a recurring issue affecting")
-    customer_phrase = customer if customer != "General business" else "business users"
+    audience = customer if customer != "General business" else "business users"
     return (
         f"{signal_count} eligible signals from {independent_count} independent source(s) "
-        f"indicate {phrase} {customer_phrase}, focused on {pretty_topic(topic).lower()}. "
+        f"indicate {phrase} {audience}, focused on {pretty_topic(topic).lower()}. "
         "This is an evidence candidate, not validated customer demand."
     )
 
 
 def build_outputs(signals, existing):
-    clusters = defaultdict(list)
-    mappings = []
+    preliminary = defaultdict(list)
     generated_at = now_iso()
-
     for signal in signals:
-        if not eligible(signal):
-            continue
-        theme = clean(signal.get("discovery_theme")) or "legacy_unclassified"
-        customer = normalize_customer(signal.get("target_customer_detected"))
-        topic = topic_key_for(signal)
-        clusters[(theme, customer, topic)].append(signal)
+        if eligible(signal):
+            theme = clean(signal.get("discovery_theme")) or "legacy_unclassified"
+            customer = normalize_customer(signal.get("target_customer_detected"))
+            preliminary[(theme, customer, topic_key_for(signal))].append(signal)
 
-    opportunities = []
+    clusters = split_large_general_clusters(preliminary)
+    opportunities, mappings = [], []
+
     for (theme, customer, topic), cluster_signals in sorted(clusters.items()):
-        if len(cluster_signals) < MIN_CLUSTER_SIZE:
-            continue
-
-        # Exact headline repeats within a cluster count only once.
         unique = {}
         for signal in sorted(cluster_signals, key=lambda s: to_int(s.get("relevance_score")), reverse=True):
-            headline_key = re.sub(r"\W+", " ", clean(signal.get("title")).casefold()).strip()
-            unique.setdefault(headline_key, signal)
+            headline = re.sub(r"\W+", " ", clean(signal.get("title")).casefold()).strip()
+            unique.setdefault(headline, signal)
         cluster_signals = list(unique.values())
         if len(cluster_signals) < MIN_CLUSTER_SIZE:
             continue
@@ -440,20 +413,19 @@ def build_outputs(signals, existing):
         score, median_recency, independent_count, problem_count, purchase_count, signal_scores = score_cluster(
             cluster_signals, customer, theme
         )
-        confidence = confidence_for(len(cluster_signals), independent_count, problem_count, customer)
-        status = status_for(score, confidence, clean(previous.get("status")))
-
-        dated = [parse_timestamp(s.get("published_at")) for s in cluster_signals]
-        dated = [d for d in dated if d]
-        latest_published = max(dated).isoformat() if dated else ""
         customer_count = sum(bool(clean(s.get("target_customer_detected"))) for s in cluster_signals)
+        confidence = confidence_for(len(cluster_signals), independent_count, problem_count, customer)
+        status = status_for(
+            score, confidence, topic, customer, customer_count, median_recency,
+            clean(previous.get("status")),
+        )
 
+        dates = [parse_timestamp(s.get("published_at")) for s in cluster_signals]
+        dates = [date for date in dates if date]
+        latest_published = max(dates).isoformat() if dates else ""
         ranked = sorted(
             cluster_signals,
-            key=lambda s: (
-                to_int(s.get("relevance_score")),
-                -(to_int(s.get("recency_days"), 9999)),
-            ),
+            key=lambda s: (to_int(s.get("relevance_score")), -to_int(s.get("recency_days"), 9999)),
             reverse=True,
         )
         links = []
@@ -463,59 +435,46 @@ def build_outputs(signals, existing):
                 links.append(link)
             if len(links) >= MAX_EVIDENCE_LINKS:
                 break
-        representative_ids = [clean(s.get("signal_id")) for s in ranked[:MAX_SIGNAL_IDS]]
 
-        created_at = clean(previous.get("created_at")) or generated_at
-        opportunities.append(
-            {
-                "opportunity_id": opportunity_id,
-                "opportunity_title": build_title(theme, customer, topic),
-                "discovery_theme": theme,
-                "problem_statement": build_problem_statement(
-                    theme, customer, topic, len(cluster_signals), independent_count
-                ),
-                "target_customer": customer,
-                "topic_key": topic,
-                "signal_count": len(cluster_signals),
-                "independent_source_count": independent_count,
-                "latest_published_at": latest_published,
-                "median_recency_days": median_recency,
-                "problem_evidence_count": problem_count,
-                "purchase_evidence_count": purchase_count,
-                "customer_evidence_count": customer_count,
-                "highest_signal_score": max(signal_scores) if signal_scores else 0,
-                "average_signal_score": round(statistics.mean(signal_scores), 2) if signal_scores else 0,
-                "evidence_links": " | ".join(links),
-                "representative_signal_ids": " | ".join(representative_ids),
-                "opportunity_score": score,
-                "confidence_level": confidence,
-                "status": status,
-                "created_at": created_at,
-                "updated_at": generated_at,
-            }
-        )
+        opportunities.append({
+            "opportunity_id": opportunity_id,
+            "opportunity_title": build_title(theme, customer, topic),
+            "discovery_theme": theme,
+            "problem_statement": build_problem_statement(theme, customer, topic, len(cluster_signals), independent_count),
+            "target_customer": customer,
+            "topic_key": topic,
+            "signal_count": len(cluster_signals),
+            "independent_source_count": independent_count,
+            "latest_published_at": latest_published,
+            "median_recency_days": median_recency,
+            "problem_evidence_count": problem_count,
+            "purchase_evidence_count": purchase_count,
+            "customer_evidence_count": customer_count,
+            "highest_signal_score": max(signal_scores) if signal_scores else 0,
+            "average_signal_score": round(statistics.mean(signal_scores), 2) if signal_scores else 0,
+            "evidence_links": " | ".join(links),
+            "representative_signal_ids": " | ".join(clean(s.get("signal_id")) for s in ranked[:MAX_SIGNAL_IDS]),
+            "opportunity_score": score,
+            "confidence_level": confidence,
+            "status": status,
+            "created_at": clean(previous.get("created_at")) or generated_at,
+            "updated_at": generated_at,
+        })
 
+        vocabulary = next((v for key, v in TOPIC_RULES + SECONDARY_TOPIC_RULES if key == topic), set())
         for signal in cluster_signals:
-            signal_tokens = set(tokenize(f"{clean(signal.get('title'))} {clean(signal.get('description'))}"))
-            vocabulary = next((v for key, v in TOPIC_RULES if key == topic), set())
-            overlap = len(signal_tokens & vocabulary)
-            match_score = min(100, 55 + overlap * 10 + (10 if normalize_customer(signal.get("target_customer_detected")) == customer else 0))
-            mappings.append(
-                {
-                    "opportunity_id": opportunity_id,
-                    "signal_id": clean(signal.get("signal_id")),
-                    "match_method": "theme+customer+keyword",
-                    "match_score": match_score,
-                    "added_at": generated_at,
-                }
-            )
+            overlap = len(set(tokenize(f"{clean(signal.get('title'))} {clean(signal.get('description'))}")) & vocabulary)
+            customer_match = normalize_customer(signal.get("target_customer_detected")) == customer
+            mappings.append({
+                "opportunity_id": opportunity_id,
+                "signal_id": clean(signal.get("signal_id")),
+                "match_method": "theme+customer+keyword_v2",
+                "match_score": min(100, 55 + overlap * 10 + (10 if customer_match else 0)),
+                "added_at": generated_at,
+            })
 
     opportunities.sort(
-        key=lambda row: (
-            to_int(row["opportunity_score"]),
-            to_int(row["signal_count"]),
-            row["opportunity_title"],
-        ),
+        key=lambda row: (to_int(row["opportunity_score"]), to_int(row["signal_count"]), row["opportunity_title"]),
         reverse=True,
     )
     mappings.sort(key=lambda row: (row["opportunity_id"], row["signal_id"]))
@@ -532,7 +491,7 @@ def write_csv(path, fieldnames, rows):
 
 def main():
     try:
-        signals, malformed_count = load_signals()
+        signals, malformed = load_signals()
         existing = load_existing_opportunities()
         opportunities, mappings = build_outputs(signals, existing)
         write_csv(OPPORTUNITIES_FILE, OPPORTUNITY_FIELDS, opportunities)
@@ -541,11 +500,13 @@ def main():
         print(f"ERROR: {error}")
         return 1
 
-    print("=== Opportunity Candidate Engine ===")
+    status_counts = Counter(row["status"] for row in opportunities)
+    print("=== Opportunity Candidate Engine v2 ===")
     print(f"Signals read: {len(signals)}")
-    print(f"Malformed signal rows skipped: {malformed_count}")
+    print(f"Malformed signal rows skipped: {malformed}")
     print(f"Opportunity candidates written: {len(opportunities)}")
     print(f"Opportunity-signal mappings written: {len(mappings)}")
+    print("Status counts: " + ", ".join(f"{k}={v}" for k, v in sorted(status_counts.items())))
     print(f"Output: {OPPORTUNITIES_FILE}")
     print(f"Output: {MAP_FILE}")
     return 0
