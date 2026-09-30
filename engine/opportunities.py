@@ -124,15 +124,15 @@ SECONDARY_TOPIC_RULES = [
 ]
 
 AVIATION_COLLISIONS = {
-    "airasia", "air india", "airline", "aircraft", "airplane", "plane",
+    "airasia", "air asia", "air india", "airline", "aircraft", "airplane", "plane",
     "flight", "airport", "aviation", "crash", "landing", "passenger",
     "helicopter", "chopper", "drug test",
     "alcohol use", "pilot caused", "flying into fog",
 }
 BUSINESS_PILOT_TERMS = {
     "technology pilot", "software pilot", "ai pilot", "business pilot",
-    "trial deployment", "proof of concept", "poc", "implementation",
-    "rollout", "project pilot", "workplace ai",
+    "trial deployment", "proof of concept", "poc", "project pilot",
+    "workplace ai pilot",
 }
 
 
@@ -145,9 +145,13 @@ def clean(value):
 
 
 def to_int(value, default=0):
+    """Parse a non-negative integer without silently truncating decimals."""
+    text = clean(value)
+    if not text or not re.fullmatch(r"-?\d+", text):
+        return default
     try:
-        return max(0, int(float(clean(value))))
-    except (TypeError, ValueError):
+        return max(0, int(text))
+    except (TypeError, ValueError, OverflowError):
         return default
 
 
@@ -216,12 +220,18 @@ def secondary_topic_for(signal):
     return classify_with_rules(text, SECONDARY_TOPIC_RULES)
 
 
+def contains_phrase(text, phrase):
+    """Match a phrase on non-alphanumeric boundaries to avoid substring hits."""
+    pattern = r"(?<![a-z0-9])" + re.escape(phrase.casefold()) + r"(?![a-z0-9])"
+    return bool(re.search(pattern, text.casefold()))
+
+
 def is_query_collision(signal):
     if clean(signal.get("discovery_theme")) != "failure_signals":
         return False
-    text = f"{clean(signal.get('title'))} {clean(signal.get('description'))}".casefold()
-    aviation_hit = any(term in text for term in AVIATION_COLLISIONS)
-    business_hit = any(term in text for term in BUSINESS_PILOT_TERMS)
+    text = f"{clean(signal.get('title'))} {clean(signal.get('description'))}"
+    aviation_hit = any(contains_phrase(text, term) for term in AVIATION_COLLISIONS)
+    business_hit = any(contains_phrase(text, term) for term in BUSINESS_PILOT_TERMS)
     return aviation_hit and not business_hit
 
 
@@ -515,12 +525,33 @@ def build_outputs(signals, existing):
     return opportunities, mappings, unclassified
 
 
-def write_csv(path, fieldnames, rows):
+def write_csv_temp(path, fieldnames, rows):
+    """Write a complete temporary CSV without replacing the live output."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", newline="", encoding="utf-8") as handle:
+    temp_path = path.with_suffix(path.suffix + ".tmp")
+    with temp_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)
+        handle.flush()
+    return temp_path
+
+
+def replace_outputs_atomically(output_specs):
+    """Stage all outputs first, then replace live files only after staging succeeds."""
+    staged = []
+    try:
+        for path, fieldnames, rows in output_specs:
+            staged.append((write_csv_temp(path, fieldnames, rows), path))
+        for temp_path, live_path in staged:
+            temp_path.replace(live_path)
+    except Exception:
+        for temp_path, _ in staged:
+            try:
+                temp_path.unlink(missing_ok=True)
+            except OSError:
+                pass
+        raise
 
 
 def main():
@@ -528,15 +559,45 @@ def main():
         signals, malformed = load_signals()
         existing = load_existing_opportunities()
         opportunities, mappings, unclassified = build_outputs(signals, existing)
-        write_csv(OPPORTUNITIES_FILE, OPPORTUNITY_FIELDS, opportunities)
-        write_csv(MAP_FILE, MAP_FIELDS, mappings)
-        write_csv(UNCLASSIFIED_FILE, UNCLASSIFIED_FIELDS, unclassified)
+
+        protected_existing = {
+            opportunity_id: row
+            for opportunity_id, row in existing.items()
+            if clean(row.get("status")) in {"experiment_candidate", "rejected"}
+        }
+        generated_ids = {row["opportunity_id"] for row in opportunities}
+        missing_protected = sorted(set(protected_existing) - generated_ids)
+        for opportunity_id in missing_protected:
+            print(
+                "::warning::Protected opportunity "
+                f"{opportunity_id} was not regenerated; existing decision needs review."
+            )
+
+        # Preserve valid history when a temporary upstream or rule issue yields no candidates.
+        if signals and not opportunities:
+            if unclassified:
+                print(
+                    "::warning::All eligible signals were quarantined; "
+                    "existing opportunity outputs were preserved."
+                )
+                return 0
+            print(
+                "::error::Signals were loaded but no opportunity candidates were generated; "
+                "existing outputs were preserved."
+            )
+            return 1
+
+        replace_outputs_atomically([
+            (OPPORTUNITIES_FILE, OPPORTUNITY_FIELDS, opportunities),
+            (MAP_FILE, MAP_FIELDS, mappings),
+            (UNCLASSIFIED_FILE, UNCLASSIFIED_FIELDS, unclassified),
+        ])
     except (OSError, ValueError, FileNotFoundError) as error:
         print(f"ERROR: {error}")
         return 1
 
     status_counts = Counter(row["status"] for row in opportunities)
-    print("=== Opportunity Candidate Engine v3 ===")
+    print("=== Opportunity Candidate Engine v3.1 ===")
     print(f"Signals read: {len(signals)}")
     print(f"Malformed signal rows skipped: {malformed}")
     print(f"Opportunity candidates written: {len(opportunities)}")
