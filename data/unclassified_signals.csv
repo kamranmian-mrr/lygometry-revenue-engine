@@ -1,157 +1,158 @@
 signal_id,source,discovery_theme,title,target_customer_detected,relevance_score,reason,recorded_at
-4e4c4fb812c7c234,Google News - comparison gaps,comparison_gaps,Hyperscalers: A 'Toxic Waste' Investment - Seeking Alpha,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-729f9f06a8bf7307,Google News - alternatives,comparison_gaps,"The best photo editing software in 2026: retouch, fix and enhance your images - digitalcameraworld.com",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-99f0076a3e47ce23,Google News - comparison gaps,comparison_gaps,Best AI Chatbots of 2026 - CNET,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-d3a425918c2039b4,Google News - comparison gaps,comparison_gaps,How to buy the best refurbished tech in 2026 - consumer.org.nz,,9,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-dc01ec553b285f53,Google News - comparison gaps,comparison_gaps,How to buy the best refurbished tech in 2026 - Consumer NZ,,9,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-ead199a5211dba05,Google News - comparison gaps,comparison_gaps,Best AI Chatbots of 2026 - cnet.com,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-2322b3c78ef60d47,Google News - failed pilots,failure_signals,Columbia residents concerned as W.R. Grace tests recycling technology - Maryland Daily Record,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-41e123c04059dec2,Google News - failed pilots,failure_signals,India loves AI. So why are so many workplace AI pilots failing? - businesstoday.in,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-7271ea0fa3c5d2d7,Google News - failed pilots,failure_signals,Robin Wonsley Has One Answer for Technology - Minneapolis Times,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c47db4aaa19c6c66,Google News - failed pilots,failure_signals,India loves AI. So why are so many workplace AI pilots failing? - Business Today,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-0cd604012eae59e3,Hacker News,open_technology_signals,How to speed up the Rust compiler in September 2026,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-10c8716bcb35403a,Hacker News,open_technology_signals,Oura postpones it's IPO with 24hrs notice citing AI threat,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-1415f93e71c0d98e,Hacker News,open_technology_signals,What Is OpenAI's Decisions API?,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-1468ba6e4b29f2c0,Hacker News,open_technology_signals,Ollama now supports Jev-style decision models,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-1724a72489b0414f,Hacker News,open_technology_signals,Mathematics and Reading Are Different,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-18882731e3ceeb51,Hacker News,open_technology_signals,Racing game where tracks are based on shape of a country,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-18d7fe3e491cfcda,Hacker News,open_technology_signals,"Show HN: Zerikai Memory: local code-memory MCP server, now with Jev",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-1b710153c0991fb2,Hacker News,open_technology_signals,Apple Is Finally Ready to Enter Its Next Big Category: The Smart Home,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-1f70b9d73c186fea,Hacker News,open_technology_signals,Radio Waves Coming from an Alien Planet May Be a Cosmic First,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-20e74afc98302dcd,Hacker News,open_technology_signals,AI scientist autonomously generates and validates new biological discoveries,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-22aff66e732b4c2c,Hacker News,open_technology_signals,"Would you lamers stop letting AI say ""it's not A it's B""",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-23a6f6ac4eaf109b,Hacker News,open_technology_signals,Practical ways to use ChatGPT Pro 500,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-2bdef8d787db0128,Hacker News,open_technology_signals,How to blur images at 20k FPS (or 50 microseconds) [video],,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-33c2aa5b6f85aeec,Hacker News,open_technology_signals,"Every list on GitHub, searchable, scored and kept fresh",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-33e76fe72f589bc9,Hacker News,open_technology_signals,Show HN: Hosted MCP Server for Google Search Console,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-3ac634359f7eafc7,Hacker News,open_technology_signals,Geo Carncross: How to program computers (kos) (2014),,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-3f70c5d839d8b3e3,Hacker News,open_technology_signals,Why Linux will dominate the future of desktop computing,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-42faa1b334ad2023,Hacker News,open_technology_signals,Cloudflare plans to issue quantum-safe TLS certificates,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-55662e2df3e96da9,Hacker News,open_technology_signals,Show HN: Range – open a 1TB Linux environment in under a second,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-57c6886fad5f40ac,Hacker News,open_technology_signals,Upgrade your desktop: Ubuntu 26.04.1 LTS is now available,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-58694167926c61b8,Hacker News,open_technology_signals,A personal opinion on the Zig programming language,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5a1858a063f41fb5,Hacker News,open_technology_signals,"There was a hijacking, we've subdued the terrorists, we need help",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5a7a7cefeb190edf,Hacker News,open_technology_signals,"Artist ""interrupts sightline"" of Gateway Arch with animal-hide sculpture",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5ac18670e447dcfc,Hacker News,open_technology_signals,Mitos – personal helix fork with bunch new features,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5ff0eb48d2e610d5,Hacker News,open_technology_signals,"Show HN: Privacy-First Natural Language to SQL, No LLMs, No Uploads",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-618c5604575ee38f,Hacker News,open_technology_signals,How HN: Harness Router,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-64864673538b733e,Hacker News,open_technology_signals,Will A.I. Make Your Brain Lazy?,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-6ec4855cd29aff0b,Hacker News,open_technology_signals,Thoughts on Peter Thiel's better evil than bad argument,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-6fdef3b12b91031c,Hacker News,open_technology_signals,Self-Destructing Hotfixes with Updatecli,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-7055480345483238,Hacker News,open_technology_signals,Apple Pass Designer,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-71e959853fee9c6d,Hacker News,open_technology_signals,Local AI Models: The Catalyst for the Great Reset,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-741294814a4c2435,Hacker News,open_technology_signals,Bonsai-lint – A multi-language cognitive complexity linter,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-74b8b379fb70ccb5,Hacker News,open_technology_signals,Ask HN: Any tips/resources on selling devtools Build+Run environments?,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-759a98f8b363cc0d,Hacker News,open_technology_signals,Trump says AI bosses have signed 'morally binding' accord to self-regulate,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-76a6809994819d48,Hacker News,open_technology_signals,Commodore 128 Becomes Marine Vessel Tracker,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-76b64330f7928a9e,Hacker News,open_technology_signals,Open 3D landmarks made to work on maps,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-777a0f9b82e07a97,Hacker News,open_technology_signals,Memory safety for Postgres extensions in C/C++,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-7e96e0a22c991576,Hacker News,open_technology_signals,Cold War espionage added $4.6B to East Germany's economy,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-7ec3519191f4b595,Hacker News,open_technology_signals,Tiny System One decision models that run in the browser (29MB),,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-8283dbb744301d41,Hacker News,open_technology_signals,Show HN: AT0M – a Jev Like System One decision model in a single Rust binary,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-873e5d164ca2d7b2,Hacker News,open_technology_signals,"When ""Gender Deception"" Is a Crime",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-93d148340199156c,Hacker News,open_technology_signals,Scientists Have Found a Weird Physical Sign That Someone Is Interested in You,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-95eac09c4f71edb4,Hacker News,open_technology_signals,"Show HN: Explainroo, Open Source Framework to Make Explainer Videos with Claude",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9712307313a43582,Hacker News,open_technology_signals,"Apple's Reference Image tech that ""sets a new standard for verifiable"" photos",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9ba77987496df7de,Hacker News,open_technology_signals,CaveCode – why input many code token when few do trick,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9cebb75d4651d368,Hacker News,open_technology_signals,Show HN: AtLeast – an Apple Watch timer that goes silent when you're done,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9d52449023ddb024,Hacker News,open_technology_signals,Crap: A Fork of Poop,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-aadc4c36c2bb9e08,Hacker News,open_technology_signals,Surveillance Company Vidizmo Wants to Add Facial Recognition to Flock Cameras,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-accbb2fab343b207,Hacker News,open_technology_signals,WiFi telegraph: An intramarital communication system [video],,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-afabc1b97721748c,Hacker News,open_technology_signals,We need 'right to intervene' in AI amid growing threat says Bank of England boss,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b282414ce1901832,Hacker News,open_technology_signals,Apple's New CEO Seeks to Make Company Run Faster and Leane,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b39caa3e7f75a991,Hacker News,open_technology_signals,"Jacques Barzun, Cultural historian and critic (1980)",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b5451e4a0e96ecc4,Hacker News,open_technology_signals,"BookOrbit – self-hosted ebooks, audiobooks, comics, and PDFs",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b656b11daeb06d66,Hacker News,open_technology_signals,"White House asks OpenAI, Anthropic hold new models from UK testers until review",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b66fc4aaea7a5916,Hacker News,open_technology_signals,How do you deal with people who strongly disagree with your views?,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b8ebf609181d85c8,Hacker News,open_technology_signals,Working in Glass,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-ba0d743449916e5e,Hacker News,open_technology_signals,FZ-1073 attempted murder-suicide by one of the pilots,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-bb1579853e4476a1,Hacker News,open_technology_signals,A person has been using the Pain steering paper to make an AI torture chamber,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-bb406b0aa0e6d5d9,Hacker News,open_technology_signals,How Do Astra and Opus 5.5 Perform on Robotics and Web Tasks,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-bf5f6efe288f0b42,Hacker News,open_technology_signals,Frog and Toad and the Increasingly Capable Machines,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-bf81d0e602bfcb73,Hacker News,open_technology_signals,"Boeing ""incredibly excited"" to serve as nation's only astronaut transportation",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c42a484e03110e5d,Hacker News,open_technology_signals,A.I. can be tricked into telling you anything,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c4845d08ee8e1a32,Hacker News,open_technology_signals,Show Wikipedia pages that are physically close to you,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c57ef96dd0492dd9,Hacker News,open_technology_signals,Lace and Labor,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c5e0a4cf3f2375f4,Hacker News,open_technology_signals,"Show HN: Parse - define the fields once, get the same JSON from every PDF",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c5fc4a2772bb5cd8,Hacker News,open_technology_signals,An unexpected difference between terminal programs: backward line wrapping,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c64e56d0d2bd5f14,Hacker News,open_technology_signals,Leveraging Lessons Learned Developing Internet Protocols,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-cb169fdde42b4c08,Hacker News,open_technology_signals,Show HN: I built a proxy scraper that checks 700 sources and verifies proxy,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-cf5e6328df180184,Hacker News,open_technology_signals,Turbo Haskell,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-d7cff82e5491ea38,Hacker News,open_technology_signals,Racing game where tracks have the shape of a country,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-df28dce434e3c44c,Hacker News,open_technology_signals,Crusader Kings 3's By God Alone expansion offers plenty of holy hijinks,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-e7057104c17a9ece,Hacker News,open_technology_signals,Trump announces vague AI deal among tech CEOs for 'tremendous self-policing',,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-e773be8fc897b8cf,Hacker News,open_technology_signals,Cohere: Embed 5 – A New Family of Frontier Embedding Models,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-ee0969cd92eec1c6,Hacker News,open_technology_signals,Spark-X2.5,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-eea3d3786eb11d0c,Hacker News,open_technology_signals,Google paying almost no publishers almost nothing for content used in AI answers,,10,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-f01ffd76c76abfcd,Hacker News,open_technology_signals,Context Language Models,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-f26c16bc52afadf5,Hacker News,open_technology_signals,Polish pizza shop advertises with pen and paper instead of slop,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-f558eb265f21ce22,Hacker News,open_technology_signals,Ask HN: What would an ideal programming language for the use by AI look like?,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-f8aebe3bfafb73db,Hacker News,open_technology_signals,Body of Work Thinks Back at You,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-fed87bc77a1ad44b,Hacker News,open_technology_signals,"Clarity, a streaming model for speech enhancement and target speaker extraction",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-ff7f335a1ae65577,Hacker News,open_technology_signals,"Making AI an asset, not an expense",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-066eb615f611e761,Google News - willingness to pay,purchase_signals,"Tri-State man says software update disabled car, leaving $1,600 bill and little options - local12.com",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-06afb1f487410ebe,Google News - willingness to pay,purchase_signals,Why Doesn’t Microsoft Offer Microsoft 365 for Linux? - Medium,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-18544cfe1e07e1e0,Google News - tool demand,purchase_signals,Top Due Diligence Software for 2026 (Buyer’s Guide) - alpha-sense.com,,10,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-2c8ed425c925aca4,Google News - tool demand,purchase_signals,Top AI Tools for Earnings Analysis in 2026 - alpha-sense.com,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-2fbd4e291af9a46b,Google News - willingness to pay,purchase_signals,Q&A: New Jersey CTO Chris Rein Explains Why Hybrid Cloud Is Helpful for State Agencies - StateTech Magazine,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-32e500309797296c,Google News - willingness to pay,purchase_signals,We Spent 30 Years Building Software Nobody Needed. Now the Reckoning Is Here. - Built In,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-3bbd8961e9e5006e,Google News - willingness to pay,purchase_signals,Senate report: all 50 states were targeted by Russian interference ahead of 2016 elections - pbs.org,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-408037e8efe83c2d,Google News - willingness to pay,purchase_signals,Adobe Buys Topaz Labs: What It Means - Fstoppers,,10,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-47769c785b74875c,Google News - willingness to pay,purchase_signals,The Psychology Behind Freemium - Priceonomics,,10,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-485a25f0f074d01c,Google News - willingness to pay,purchase_signals,Great Barrington moves ahead with $90K software request as partner towns hesitate - The Berkshire Eagle,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-4caa537762152797,Google News - willingness to pay,purchase_signals,"S'pore man quits S$10,000 software engineering job to sell hokkien mee, now earns a third of previous salary - Mothership",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-750298d2a78fd9a1,Google News - willingness to pay,purchase_signals,The AI Is Always Watching - Hackaday,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-7cdfa948f5ff856e,Google News - tool demand,purchase_signals,Top 15 Best Screen Recorder Tools in 2025 - Atlassian,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-8a73196fb55d1d10,Google News - willingness to pay,purchase_signals,Senate report: all 50 states were targeted by Russian interference ahead of 2016 elections - PBS,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-968b80977a91fa7c,Google News - willingness to pay,purchase_signals,"This 22-year-old earns $194,000 at Google and aims to retire by 35—how he spends his money - CNBC",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9a0de6b65dac5236,Google News - willingness to pay,purchase_signals,Synchro Arts Revoice Pro 3 - Attack Magazine,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9fe514953583c53d,Google News - willingness to pay,purchase_signals,"This 22-year-old earns $194,000 at Google and aims to retire by 35—how he spends his money - cnbc.com",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-a8f27aa790b31008,Google News - willingness to pay,purchase_signals,Software engineer creates check-in app for seniors - The Providence Journal,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b4c49f7a9ee63a3c,Google News - willingness to pay,purchase_signals,"Tri-State man says software update disabled car, leaving $1,600 bill and little options - WKRC",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-cf63895f0a11f7c3,Google News - willingness to pay,purchase_signals,"#433: AI Could Transform The Software Value Chain, & More - Ark Invest",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-d88c8aa17f4bac7e,Google News - willingness to pay,purchase_signals,Automakers look to cash in on software updates delivered remotely - NBC News,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-e27654e69e47a535,Google News - tool demand,purchase_signals,Top Due Diligence Software for 2026 (Buyer’s Guide) - AlphaSense,,10,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-e529aed168a6ce03,Google News - willingness to pay,purchase_signals,We Spent 30 Years Building Software Nobody Needed. Now the Reckoning Is Here. - builtin.com,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-faf2094c922fc172,Google News - tool demand,purchase_signals,Top AI Tools for Earnings Analysis in 2026 - AlphaSense,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-05f6b3ff0f730f1f,Google News - SMEs,underserved_users,"A 12-Year-Old Built an AI Receptionist for Small Businesses. Yes, the Future Has Homework. - Kingy AI",Small business,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-12025a72a3629396,Google News - SMEs,underserved_users,Why SMBs Struggle with Tool Sprawl and How to Get It Under Control - BizTech Magazine,,9,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-147a606a4d9ed652,Google News - government,underserved_users,Number Of The Day | R40 Billion | 24 June 2026 - eNCA,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-156029998a4f764c,Google News - SMEs,underserved_users,"MYOB and Microsoft sign five-year strategic partnership to jointly fund, build, and scale AI-powered innovation for Australian and New Zealand businesses - Microsoft Source",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-21d817e0a2ae569a,Google News - government,underserved_users,Toward a Framework & Evidence for Innovation in Co-Governance - American Academy of Arts and Sciences,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-28402b52de58dc1c,Google News - government,underserved_users,Number Of The Day | R40 Billion | 24 June 2026 - enca.com,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-34a4e54003afadba,Google News - SMEs,underserved_users,Everybody Is Using AI. Why Aren’t Businesses Seeing Meaningful Returns? - Forbes,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-36385e9b3f06aef1,Google News - SMEs,underserved_users,Email burnout is increasing phishing and fraud risks for small businesses. What you need to know - Bitdefender,Small business,11,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-4211d0196e82cbd6,Google News - SMEs,underserved_users,Everybody Is Using AI. Why Aren’t Businesses Seeing Meaningful Returns? - forbes.com,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5ba80fb29db09251,Google News - government,underserved_users,Americans’ Dismal Views of the Nation’s Politics - pewresearch.org,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5d80490d84916ed4,Google News - government,underserved_users,Innovation Challenges - IDB | Inter American Development Bank,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5f908c9e6852103a,Google News - government,underserved_users,Toward a Framework & Evidence for Innovation in Co-Governance - amacad.org,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-8d710a5c74ba411f,Google News - SMEs,underserved_users,"MYOB and Microsoft sign five-year strategic partnership to jointly fund, build, and scale AI-powered innovation for Australian and New Zealand businesses - news.microsoft.com",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-93b42071230af18c,Google News - government,underserved_users,00 Introduction - centreforcities.org,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9f7c39f9e133f515,Google News - SMEs,underserved_users,Introducing Claude for Small Business - anthropic.com,Small business,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b365a4f25d9f42b2,Google News - SMEs,underserved_users,2026 Virginia Business Best Places to Work | Small companies - Virginia Business,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b36a2514ebf87a3b,Google News - SMEs,underserved_users,AI Won’t Fix a Business That Wasn’t Working Before AI - inc.com,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b55c5a16ad31e95b,Google News - government,underserved_users,A zoning moratorium should only be done with caution - canr.msu.edu,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c2d705d51a893303,Google News - government,underserved_users,1. The biggest problems and greatest strengths of the U.S. political system - pewresearch.org,,9,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c504ed7dd6e9c2e7,Google News - SMEs,underserved_users,Introducing Claude for Small Business - Anthropic,Small business,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-cac93e1878a96cca,Google News - SMEs,underserved_users,2026 Virginia Business Best Places to Work | Small companies - virginiabusiness.com,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-d8f72ce73c233d47,Google News - SMEs,underserved_users,28 Profitable Tech Business Ideas to Launch in 2026 - Shopify,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-1cc99e6da5c0afd6,Google News - unmet needs,unmet_needs,Microsoft goes after Salesforce and ERP users with AI-powered converter - The Register,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-20542bc7b8406cdc,Google News - unmet needs,unmet_needs,What Is Otter.ai and How to Use It for Your Small Business - Bitdefender,Small business,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-3b5441dfb3275432,Google News - manual work,unmet_needs,How AI Is Cutting Mortgage Document Processing From Hours To Minutes - StreetInsider,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-44128044ab9d743e,Google News - unmet needs,unmet_needs,Small Business Demands the Right to Repair - nfib.com,Small business,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-54d31c9c00921e01,Google News - unmet needs,unmet_needs,Small Business Demands the Right to Repair - NFIB,Small business,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-55f712c34e0bbe11,Google News - manual work,unmet_needs,"IT problems will take 'some time' to fix, says Crowdstrike boss - BBC",,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-56b1fd1f30ef46ab,Google News - unmet needs,unmet_needs,‘Biggest’ reason why Elon Musk’s xAI may be struggling to sell AI tools compared to rivals like Google an - timesofindia.indiatimes.com,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-5a88dce472f05429,Google News - unmet needs,unmet_needs,"Goldman Sachs says small businesses are embracing AI, but fewer than 1 in 5 are good at actually integrating it - fortune.com",Small business,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-70a59ddb4b2cf608,Google News - manual work,unmet_needs,When the Backup Is a Human Who No Longer Knows How to Do the Job - Capgemini,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-7419fdae3876997a,Google News - unmet needs,unmet_needs,Struggling to Find the Right Open Source Tool? Try Bellingcat’s New Online Investigations Toolkit - Global Investigative Journalism Network (GIJN),,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-8f693065479a018a,Google News - manual work,unmet_needs,Socure Brings AI Identity Checks To Circle’s Arc Onramp - TradingView,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-94c57a863557080c,Google News - manual work,unmet_needs,How AI Is Cutting Mortgage Document Processing From Hours To Minutes - streetinsider.com,,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-9a18142754c156f4,Google News - unmet needs,unmet_needs,Human hands are astonishing tools. Here's why robots are struggling to match them - BBC,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-a221574f0992782f,Google News - unmet needs,unmet_needs,‘Biggest’ reason why Elon Musk’s xAI may be struggling to sell AI tools compared to rivals like Google an - The Times of India,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-ac44a910536bce43,Google News - manual work,unmet_needs,"Nigeria does not need more managers, it needs better management - The Guardian Nigeria News",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-b09fa42bd8578645,Google News - unmet needs,unmet_needs,Google’s internal struggle is handing the AI coding race to Anthropic and OpenAI - Los Angeles Times,,8,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c4c829c21bf24af1,Google News - unmet needs,unmet_needs,"Goldman Sachs says small businesses are embracing AI, but fewer than 1 in 5 are good at actually integrating it - Fortune",Small business,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-c99434dd2361073f,Google News - manual work,unmet_needs,"Nigeria does not need more managers, it needs better management - guardian.ng",,6,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
-d1a8364f04da8419,Google News - unmet needs,unmet_needs,Why your Lubbock business might be invisible to AI chatbots - Lubbock Avalanche-Journal,,7,no_secondary_topic_match,2026-09-30T14:08:15.831751+00:00
+4e4c4fb812c7c234,Google News - comparison gaps,comparison_gaps,Hyperscalers: A 'Toxic Waste' Investment - Seeking Alpha,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+729f9f06a8bf7307,Google News - alternatives,comparison_gaps,"The best photo editing software in 2026: retouch, fix and enhance your images - digitalcameraworld.com",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+99f0076a3e47ce23,Google News - comparison gaps,comparison_gaps,Best AI Chatbots of 2026 - CNET,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+d3a425918c2039b4,Google News - comparison gaps,comparison_gaps,How to buy the best refurbished tech in 2026 - consumer.org.nz,,9,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+dc01ec553b285f53,Google News - comparison gaps,comparison_gaps,How to buy the best refurbished tech in 2026 - Consumer NZ,,9,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+ead199a5211dba05,Google News - comparison gaps,comparison_gaps,Best AI Chatbots of 2026 - cnet.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+2322b3c78ef60d47,Google News - failed pilots,failure_signals,Columbia residents concerned as W.R. Grace tests recycling technology - Maryland Daily Record,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+41e123c04059dec2,Google News - failed pilots,failure_signals,India loves AI. So why are so many workplace AI pilots failing? - businesstoday.in,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+7271ea0fa3c5d2d7,Google News - failed pilots,failure_signals,Robin Wonsley Has One Answer for Technology - Minneapolis Times,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c47db4aaa19c6c66,Google News - failed pilots,failure_signals,India loves AI. So why are so many workplace AI pilots failing? - Business Today,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+0cd604012eae59e3,Hacker News,open_technology_signals,How to speed up the Rust compiler in September 2026,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+10c8716bcb35403a,Hacker News,open_technology_signals,Oura postpones it's IPO with 24hrs notice citing AI threat,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+1415f93e71c0d98e,Hacker News,open_technology_signals,What Is OpenAI's Decisions API?,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+1468ba6e4b29f2c0,Hacker News,open_technology_signals,Ollama now supports Jev-style decision models,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+1724a72489b0414f,Hacker News,open_technology_signals,Mathematics and Reading Are Different,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+18882731e3ceeb51,Hacker News,open_technology_signals,Racing game where tracks are based on shape of a country,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+18d7fe3e491cfcda,Hacker News,open_technology_signals,"Show HN: Zerikai Memory: local code-memory MCP server, now with Jev",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+1b710153c0991fb2,Hacker News,open_technology_signals,Apple Is Finally Ready to Enter Its Next Big Category: The Smart Home,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+1f70b9d73c186fea,Hacker News,open_technology_signals,Radio Waves Coming from an Alien Planet May Be a Cosmic First,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+20e74afc98302dcd,Hacker News,open_technology_signals,AI scientist autonomously generates and validates new biological discoveries,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+22aff66e732b4c2c,Hacker News,open_technology_signals,"Would you lamers stop letting AI say ""it's not A it's B""",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+23a6f6ac4eaf109b,Hacker News,open_technology_signals,Practical ways to use ChatGPT Pro 500,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+2bdef8d787db0128,Hacker News,open_technology_signals,How to blur images at 20k FPS (or 50 microseconds) [video],,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+33c2aa5b6f85aeec,Hacker News,open_technology_signals,"Every list on GitHub, searchable, scored and kept fresh",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+33e76fe72f589bc9,Hacker News,open_technology_signals,Show HN: Hosted MCP Server for Google Search Console,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+3ac634359f7eafc7,Hacker News,open_technology_signals,Geo Carncross: How to program computers (kos) (2014),,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+3f70c5d839d8b3e3,Hacker News,open_technology_signals,Why Linux will dominate the future of desktop computing,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+42faa1b334ad2023,Hacker News,open_technology_signals,Cloudflare plans to issue quantum-safe TLS certificates,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+55662e2df3e96da9,Hacker News,open_technology_signals,Show HN: Range – open a 1TB Linux environment in under a second,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+57c6886fad5f40ac,Hacker News,open_technology_signals,Upgrade your desktop: Ubuntu 26.04.1 LTS is now available,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+58694167926c61b8,Hacker News,open_technology_signals,A personal opinion on the Zig programming language,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5a1858a063f41fb5,Hacker News,open_technology_signals,"There was a hijacking, we've subdued the terrorists, we need help",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5a7a7cefeb190edf,Hacker News,open_technology_signals,"Artist ""interrupts sightline"" of Gateway Arch with animal-hide sculpture",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5ac18670e447dcfc,Hacker News,open_technology_signals,Mitos – personal helix fork with bunch new features,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5ff0eb48d2e610d5,Hacker News,open_technology_signals,"Show HN: Privacy-First Natural Language to SQL, No LLMs, No Uploads",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+618c5604575ee38f,Hacker News,open_technology_signals,How HN: Harness Router,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+64864673538b733e,Hacker News,open_technology_signals,Will A.I. Make Your Brain Lazy?,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+6ec4855cd29aff0b,Hacker News,open_technology_signals,Thoughts on Peter Thiel's better evil than bad argument,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+6fdef3b12b91031c,Hacker News,open_technology_signals,Self-Destructing Hotfixes with Updatecli,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+7055480345483238,Hacker News,open_technology_signals,Apple Pass Designer,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+71e959853fee9c6d,Hacker News,open_technology_signals,Local AI Models: The Catalyst for the Great Reset,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+741294814a4c2435,Hacker News,open_technology_signals,Bonsai-lint – A multi-language cognitive complexity linter,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+74b8b379fb70ccb5,Hacker News,open_technology_signals,Ask HN: Any tips/resources on selling devtools Build+Run environments?,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+759a98f8b363cc0d,Hacker News,open_technology_signals,Trump says AI bosses have signed 'morally binding' accord to self-regulate,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+76a6809994819d48,Hacker News,open_technology_signals,Commodore 128 Becomes Marine Vessel Tracker,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+76b64330f7928a9e,Hacker News,open_technology_signals,Open 3D landmarks made to work on maps,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+777a0f9b82e07a97,Hacker News,open_technology_signals,Memory safety for Postgres extensions in C/C++,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+7e96e0a22c991576,Hacker News,open_technology_signals,Cold War espionage added $4.6B to East Germany's economy,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+7ec3519191f4b595,Hacker News,open_technology_signals,Tiny System One decision models that run in the browser (29MB),,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+8283dbb744301d41,Hacker News,open_technology_signals,Show HN: AT0M – a Jev Like System One decision model in a single Rust binary,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+873e5d164ca2d7b2,Hacker News,open_technology_signals,"When ""Gender Deception"" Is a Crime",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+93d148340199156c,Hacker News,open_technology_signals,Scientists Have Found a Weird Physical Sign That Someone Is Interested in You,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+95eac09c4f71edb4,Hacker News,open_technology_signals,"Show HN: Explainroo, Open Source Framework to Make Explainer Videos with Claude",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9712307313a43582,Hacker News,open_technology_signals,"Apple's Reference Image tech that ""sets a new standard for verifiable"" photos",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9ba77987496df7de,Hacker News,open_technology_signals,CaveCode – why input many code token when few do trick,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9cebb75d4651d368,Hacker News,open_technology_signals,Show HN: AtLeast – an Apple Watch timer that goes silent when you're done,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9d52449023ddb024,Hacker News,open_technology_signals,Crap: A Fork of Poop,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+aadc4c36c2bb9e08,Hacker News,open_technology_signals,Surveillance Company Vidizmo Wants to Add Facial Recognition to Flock Cameras,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+accbb2fab343b207,Hacker News,open_technology_signals,WiFi telegraph: An intramarital communication system [video],,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+afabc1b97721748c,Hacker News,open_technology_signals,We need 'right to intervene' in AI amid growing threat says Bank of England boss,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b282414ce1901832,Hacker News,open_technology_signals,Apple's New CEO Seeks to Make Company Run Faster and Leane,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b39caa3e7f75a991,Hacker News,open_technology_signals,"Jacques Barzun, Cultural historian and critic (1980)",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b5451e4a0e96ecc4,Hacker News,open_technology_signals,"BookOrbit – self-hosted ebooks, audiobooks, comics, and PDFs",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b656b11daeb06d66,Hacker News,open_technology_signals,"White House asks OpenAI, Anthropic hold new models from UK testers until review",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b66fc4aaea7a5916,Hacker News,open_technology_signals,How do you deal with people who strongly disagree with your views?,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b8ebf609181d85c8,Hacker News,open_technology_signals,Working in Glass,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+ba0d743449916e5e,Hacker News,open_technology_signals,FZ-1073 attempted murder-suicide by one of the pilots,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+bb1579853e4476a1,Hacker News,open_technology_signals,A person has been using the Pain steering paper to make an AI torture chamber,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+bb406b0aa0e6d5d9,Hacker News,open_technology_signals,How Do Astra and Opus 5.5 Perform on Robotics and Web Tasks,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+bf5f6efe288f0b42,Hacker News,open_technology_signals,Frog and Toad and the Increasingly Capable Machines,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+bf81d0e602bfcb73,Hacker News,open_technology_signals,"Boeing ""incredibly excited"" to serve as nation's only astronaut transportation",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c42a484e03110e5d,Hacker News,open_technology_signals,A.I. can be tricked into telling you anything,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c4845d08ee8e1a32,Hacker News,open_technology_signals,Show Wikipedia pages that are physically close to you,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c57ef96dd0492dd9,Hacker News,open_technology_signals,Lace and Labor,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c5e0a4cf3f2375f4,Hacker News,open_technology_signals,"Show HN: Parse - define the fields once, get the same JSON from every PDF",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c5fc4a2772bb5cd8,Hacker News,open_technology_signals,An unexpected difference between terminal programs: backward line wrapping,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c64e56d0d2bd5f14,Hacker News,open_technology_signals,Leveraging Lessons Learned Developing Internet Protocols,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+cb169fdde42b4c08,Hacker News,open_technology_signals,Show HN: I built a proxy scraper that checks 700 sources and verifies proxy,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+cf5e6328df180184,Hacker News,open_technology_signals,Turbo Haskell,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+d7cff82e5491ea38,Hacker News,open_technology_signals,Racing game where tracks have the shape of a country,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+df28dce434e3c44c,Hacker News,open_technology_signals,Crusader Kings 3's By God Alone expansion offers plenty of holy hijinks,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+e7057104c17a9ece,Hacker News,open_technology_signals,Trump announces vague AI deal among tech CEOs for 'tremendous self-policing',,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+e773be8fc897b8cf,Hacker News,open_technology_signals,Cohere: Embed 5 – A New Family of Frontier Embedding Models,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+ee0969cd92eec1c6,Hacker News,open_technology_signals,Spark-X2.5,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+eea3d3786eb11d0c,Hacker News,open_technology_signals,Google paying almost no publishers almost nothing for content used in AI answers,,10,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+f01ffd76c76abfcd,Hacker News,open_technology_signals,Context Language Models,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+f26c16bc52afadf5,Hacker News,open_technology_signals,Polish pizza shop advertises with pen and paper instead of slop,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+f558eb265f21ce22,Hacker News,open_technology_signals,Ask HN: What would an ideal programming language for the use by AI look like?,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+f8aebe3bfafb73db,Hacker News,open_technology_signals,Body of Work Thinks Back at You,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+fed87bc77a1ad44b,Hacker News,open_technology_signals,"Clarity, a streaming model for speech enhancement and target speaker extraction",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+ff7f335a1ae65577,Hacker News,open_technology_signals,"Making AI an asset, not an expense",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+066eb615f611e761,Google News - willingness to pay,purchase_signals,"Tri-State man says software update disabled car, leaving $1,600 bill and little options - local12.com",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+06afb1f487410ebe,Google News - willingness to pay,purchase_signals,Why Doesn’t Microsoft Offer Microsoft 365 for Linux? - Medium,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+18544cfe1e07e1e0,Google News - tool demand,purchase_signals,Top Due Diligence Software for 2026 (Buyer’s Guide) - alpha-sense.com,,10,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+2c8ed425c925aca4,Google News - tool demand,purchase_signals,Top AI Tools for Earnings Analysis in 2026 - alpha-sense.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+2fbd4e291af9a46b,Google News - willingness to pay,purchase_signals,Q&A: New Jersey CTO Chris Rein Explains Why Hybrid Cloud Is Helpful for State Agencies - StateTech Magazine,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+32e500309797296c,Google News - willingness to pay,purchase_signals,We Spent 30 Years Building Software Nobody Needed. Now the Reckoning Is Here. - Built In,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+3bbd8961e9e5006e,Google News - willingness to pay,purchase_signals,Senate report: all 50 states were targeted by Russian interference ahead of 2016 elections - pbs.org,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+408037e8efe83c2d,Google News - willingness to pay,purchase_signals,Adobe Buys Topaz Labs: What It Means - Fstoppers,,10,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+44fb86db5fd75d12,Google News - willingness to pay,purchase_signals,Automakers look to cash in on software updates delivered remotely - nbcnews.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+47769c785b74875c,Google News - willingness to pay,purchase_signals,The Psychology Behind Freemium - Priceonomics,,10,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+485a25f0f074d01c,Google News - willingness to pay,purchase_signals,Great Barrington moves ahead with $90K software request as partner towns hesitate - The Berkshire Eagle,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+4caa537762152797,Google News - willingness to pay,purchase_signals,"S'pore man quits S$10,000 software engineering job to sell hokkien mee, now earns a third of previous salary - Mothership",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+750298d2a78fd9a1,Google News - willingness to pay,purchase_signals,The AI Is Always Watching - Hackaday,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+7cdfa948f5ff856e,Google News - tool demand,purchase_signals,Top 15 Best Screen Recorder Tools in 2025 - Atlassian,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+8a73196fb55d1d10,Google News - willingness to pay,purchase_signals,Senate report: all 50 states were targeted by Russian interference ahead of 2016 elections - PBS,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+968b80977a91fa7c,Google News - willingness to pay,purchase_signals,"This 22-year-old earns $194,000 at Google and aims to retire by 35—how he spends his money - CNBC",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9a0de6b65dac5236,Google News - willingness to pay,purchase_signals,Synchro Arts Revoice Pro 3 - Attack Magazine,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9fe514953583c53d,Google News - willingness to pay,purchase_signals,"This 22-year-old earns $194,000 at Google and aims to retire by 35—how he spends his money - cnbc.com",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+a8f27aa790b31008,Google News - willingness to pay,purchase_signals,Software engineer creates check-in app for seniors - The Providence Journal,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b4c49f7a9ee63a3c,Google News - willingness to pay,purchase_signals,"Tri-State man says software update disabled car, leaving $1,600 bill and little options - WKRC",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+cf63895f0a11f7c3,Google News - willingness to pay,purchase_signals,"#433: AI Could Transform The Software Value Chain, & More - Ark Invest",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+d88c8aa17f4bac7e,Google News - willingness to pay,purchase_signals,Automakers look to cash in on software updates delivered remotely - NBC News,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+e27654e69e47a535,Google News - tool demand,purchase_signals,Top Due Diligence Software for 2026 (Buyer’s Guide) - AlphaSense,,10,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+e529aed168a6ce03,Google News - willingness to pay,purchase_signals,We Spent 30 Years Building Software Nobody Needed. Now the Reckoning Is Here. - builtin.com,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+faf2094c922fc172,Google News - tool demand,purchase_signals,Top AI Tools for Earnings Analysis in 2026 - AlphaSense,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+05f6b3ff0f730f1f,Google News - SMEs,underserved_users,"A 12-Year-Old Built an AI Receptionist for Small Businesses. Yes, the Future Has Homework. - Kingy AI",Small business,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+12025a72a3629396,Google News - SMEs,underserved_users,Why SMBs Struggle with Tool Sprawl and How to Get It Under Control - BizTech Magazine,,9,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+147a606a4d9ed652,Google News - government,underserved_users,Number Of The Day | R40 Billion | 24 June 2026 - eNCA,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+156029998a4f764c,Google News - SMEs,underserved_users,"MYOB and Microsoft sign five-year strategic partnership to jointly fund, build, and scale AI-powered innovation for Australian and New Zealand businesses - Microsoft Source",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+21d817e0a2ae569a,Google News - government,underserved_users,Toward a Framework & Evidence for Innovation in Co-Governance - American Academy of Arts and Sciences,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+28402b52de58dc1c,Google News - government,underserved_users,Number Of The Day | R40 Billion | 24 June 2026 - enca.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+34a4e54003afadba,Google News - SMEs,underserved_users,Everybody Is Using AI. Why Aren’t Businesses Seeing Meaningful Returns? - Forbes,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+36385e9b3f06aef1,Google News - SMEs,underserved_users,Email burnout is increasing phishing and fraud risks for small businesses. What you need to know - Bitdefender,Small business,11,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+4211d0196e82cbd6,Google News - SMEs,underserved_users,Everybody Is Using AI. Why Aren’t Businesses Seeing Meaningful Returns? - forbes.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5ba80fb29db09251,Google News - government,underserved_users,Americans’ Dismal Views of the Nation’s Politics - pewresearch.org,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5d80490d84916ed4,Google News - government,underserved_users,Innovation Challenges - IDB | Inter American Development Bank,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5f908c9e6852103a,Google News - government,underserved_users,Toward a Framework & Evidence for Innovation in Co-Governance - amacad.org,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+8d710a5c74ba411f,Google News - SMEs,underserved_users,"MYOB and Microsoft sign five-year strategic partnership to jointly fund, build, and scale AI-powered innovation for Australian and New Zealand businesses - news.microsoft.com",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+93b42071230af18c,Google News - government,underserved_users,00 Introduction - centreforcities.org,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9f7c39f9e133f515,Google News - SMEs,underserved_users,Introducing Claude for Small Business - anthropic.com,Small business,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b365a4f25d9f42b2,Google News - SMEs,underserved_users,2026 Virginia Business Best Places to Work | Small companies - Virginia Business,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b36a2514ebf87a3b,Google News - SMEs,underserved_users,AI Won’t Fix a Business That Wasn’t Working Before AI - inc.com,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b55c5a16ad31e95b,Google News - government,underserved_users,A zoning moratorium should only be done with caution - canr.msu.edu,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c2d705d51a893303,Google News - government,underserved_users,1. The biggest problems and greatest strengths of the U.S. political system - pewresearch.org,,9,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c504ed7dd6e9c2e7,Google News - SMEs,underserved_users,Introducing Claude for Small Business - Anthropic,Small business,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+cac93e1878a96cca,Google News - SMEs,underserved_users,2026 Virginia Business Best Places to Work | Small companies - virginiabusiness.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+d8f72ce73c233d47,Google News - SMEs,underserved_users,28 Profitable Tech Business Ideas to Launch in 2026 - Shopify,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+1cc99e6da5c0afd6,Google News - unmet needs,unmet_needs,Microsoft goes after Salesforce and ERP users with AI-powered converter - The Register,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+20542bc7b8406cdc,Google News - unmet needs,unmet_needs,What Is Otter.ai and How to Use It for Your Small Business - Bitdefender,Small business,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+3b5441dfb3275432,Google News - manual work,unmet_needs,How AI Is Cutting Mortgage Document Processing From Hours To Minutes - StreetInsider,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+44128044ab9d743e,Google News - unmet needs,unmet_needs,Small Business Demands the Right to Repair - nfib.com,Small business,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+54d31c9c00921e01,Google News - unmet needs,unmet_needs,Small Business Demands the Right to Repair - NFIB,Small business,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+55f712c34e0bbe11,Google News - manual work,unmet_needs,"IT problems will take 'some time' to fix, says Crowdstrike boss - BBC",,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+56b1fd1f30ef46ab,Google News - unmet needs,unmet_needs,‘Biggest’ reason why Elon Musk’s xAI may be struggling to sell AI tools compared to rivals like Google an - timesofindia.indiatimes.com,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+5a88dce472f05429,Google News - unmet needs,unmet_needs,"Goldman Sachs says small businesses are embracing AI, but fewer than 1 in 5 are good at actually integrating it - fortune.com",Small business,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+70a59ddb4b2cf608,Google News - manual work,unmet_needs,When the Backup Is a Human Who No Longer Knows How to Do the Job - Capgemini,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+7419fdae3876997a,Google News - unmet needs,unmet_needs,Struggling to Find the Right Open Source Tool? Try Bellingcat’s New Online Investigations Toolkit - Global Investigative Journalism Network (GIJN),,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+8f693065479a018a,Google News - manual work,unmet_needs,Socure Brings AI Identity Checks To Circle’s Arc Onramp - TradingView,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+94c57a863557080c,Google News - manual work,unmet_needs,How AI Is Cutting Mortgage Document Processing From Hours To Minutes - streetinsider.com,,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+9a18142754c156f4,Google News - unmet needs,unmet_needs,Human hands are astonishing tools. Here's why robots are struggling to match them - BBC,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+a221574f0992782f,Google News - unmet needs,unmet_needs,‘Biggest’ reason why Elon Musk’s xAI may be struggling to sell AI tools compared to rivals like Google an - The Times of India,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+ac44a910536bce43,Google News - manual work,unmet_needs,"Nigeria does not need more managers, it needs better management - The Guardian Nigeria News",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+b09fa42bd8578645,Google News - unmet needs,unmet_needs,Google’s internal struggle is handing the AI coding race to Anthropic and OpenAI - Los Angeles Times,,8,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c4c829c21bf24af1,Google News - unmet needs,unmet_needs,"Goldman Sachs says small businesses are embracing AI, but fewer than 1 in 5 are good at actually integrating it - Fortune",Small business,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+c99434dd2361073f,Google News - manual work,unmet_needs,"Nigeria does not need more managers, it needs better management - guardian.ng",,6,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
+d1a8364f04da8419,Google News - unmet needs,unmet_needs,Why your Lubbock business might be invisible to AI chatbots - Lubbock Avalanche-Journal,,7,no_secondary_topic_match,2026-09-30T14:16:19.799772+00:00
