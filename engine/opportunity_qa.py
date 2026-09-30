@@ -1,4 +1,5 @@
 import csv
+import hashlib
 import math
 import re
 import sys
@@ -52,6 +53,18 @@ STRICT_SINGLE_OPPORTUNITY_PER_SIGNAL = True
 
 def clean(value):
     return "" if value is None else str(value).strip()
+
+
+def expected_opportunity_id(theme, customer, topic):
+    """Recreate the stable ID contract used by opportunities.py v3.1."""
+    key = "|".join(
+        [
+            clean(theme).casefold(),
+            clean(customer).casefold(),
+            clean(topic).casefold(),
+        ]
+    )
+    return hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
 
 
 def split_pipe_values(value):
@@ -135,7 +148,7 @@ def print_examples(title, values, limit=5):
 
 
 def main():
-    print("=== Lygometry Opportunity QA v1.1 ===")
+    print("=== Lygometry Opportunity QA v1.2 ===")
     print(f"Opportunities: {OPPORTUNITIES_FILE}")
     print(f"Mappings: {MAP_FILE}")
     print(f"Unclassified: {UNCLASSIFIED_FILE}")
@@ -210,6 +223,7 @@ def main():
             add(critical, "signals_file_unreadable", str(error))
 
     opportunity_ids = set()
+    semantic_opportunity_ids = {}
     expected_mapping_counts = {}
     representatives_by_opportunity = {}
     created_by_opportunity = {}
@@ -228,12 +242,40 @@ def main():
         confidence = clean(row.get("confidence_level"))
         status = clean(row.get("status"))
 
-        if not HEX16.fullmatch(oid):
+        valid_opportunity_id = bool(HEX16.fullmatch(oid))
+        unique_opportunity_id = valid_opportunity_id and oid not in opportunity_ids
+
+        if not valid_opportunity_id:
             add(critical, "invalid_opportunity_id", f"row {row_number}: {oid!r}")
-        elif oid in opportunity_ids:
+        elif not unique_opportunity_id:
             add(critical, "duplicate_opportunity_id", f"row {row_number}: {oid}")
         else:
             opportunity_ids.add(oid)
+
+        if valid_opportunity_id:
+            expected_id = expected_opportunity_id(theme, customer, topic)
+            if oid != expected_id:
+                add(
+                    critical,
+                    "opportunity_id_key_mismatch",
+                    f"row {row_number}: actual={oid}, expected={expected_id}",
+                )
+
+        semantic_key = (
+            theme.casefold(),
+            customer.casefold(),
+            topic.casefold(),
+        )
+        if all(semantic_key):
+            prior_id = semantic_opportunity_ids.get(semantic_key)
+            if prior_id and prior_id != oid:
+                add(
+                    critical,
+                    "duplicate_semantic_opportunity",
+                    f"row {row_number}: {semantic_key} -> {prior_id}, {oid}",
+                )
+            elif valid_opportunity_id:
+                semantic_opportunity_ids[semantic_key] = oid
 
         for field, value in (
             ("opportunity_title", title), ("discovery_theme", theme),
@@ -268,7 +310,8 @@ def main():
 
         signal_count = parsed.get("signal_count")
         if signal_count is not None:
-            expected_mapping_counts[oid] = signal_count
+            if unique_opportunity_id:
+                expected_mapping_counts[oid] = signal_count
             if signal_count < 2:
                 add(critical, "cluster_below_minimum_size", f"row {row_number}: {signal_count}")
             for field in ("problem_evidence_count", "purchase_evidence_count", "customer_evidence_count"):
@@ -292,7 +335,8 @@ def main():
         if latest is False:
             add(warnings, "invalid_latest_published_at", f"row {row_number}")
         if isinstance(created, datetime) and isinstance(updated, datetime):
-            created_by_opportunity[oid] = created
+            if unique_opportunity_id:
+                created_by_opportunity[oid] = created
             if created > updated:
                 add(critical, "created_after_updated", f"row {row_number}")
         if isinstance(latest, datetime) and isinstance(updated, datetime):
@@ -310,7 +354,8 @@ def main():
                 add(critical, "invalid_evidence_link", f"row {row_number}: {link!r}")
 
         representative_ids = split_pipe_values(row.get("representative_signal_ids"))
-        representatives_by_opportunity[oid] = representative_ids
+        if unique_opportunity_id:
+            representatives_by_opportunity[oid] = representative_ids
         if not representative_ids:
             bucket = critical if status in {"ready_for_review", "experiment_candidate"} else warnings
             add(bucket, "no_representative_signal_ids", f"row {row_number}: {oid}")
@@ -346,6 +391,20 @@ def main():
             if confidence not in {"emerging", "supported"}:
                 add(critical, "ready_with_low_confidence", f"row {row_number}")
 
+        if status == "experiment_candidate":
+            if topic == "general":
+                add(warnings, "experiment_candidate_general_topic", f"row {row_number}")
+            if customer == "General business":
+                add(warnings, "experiment_candidate_general_customer", f"row {row_number}")
+            if parsed.get("customer_evidence_count", 0) < 1:
+                add(warnings, "experiment_candidate_without_customer_evidence", f"row {row_number}")
+            if parsed.get("median_recency_days", 999999) > 180:
+                add(warnings, "experiment_candidate_stale", f"row {row_number}")
+            if parsed.get("opportunity_score", 0) < 13:
+                add(warnings, "experiment_candidate_below_review_score", f"row {row_number}")
+            if confidence == "low":
+                add(warnings, "experiment_candidate_low_confidence", f"row {row_number}")
+
     mapping_pairs = set()
     mapped_count_by_opportunity = Counter()
     mapped_opportunity_by_signal = {}
@@ -360,14 +419,15 @@ def main():
         method = clean(row.get("match_method"))
         pair = (oid, signal_id)
 
-        if pair in mapping_pairs:
+        is_new_pair = pair not in mapping_pairs
+        if not is_new_pair:
             add(critical, "duplicate_mapping_pair", f"row {row_number}: {pair}")
         else:
             mapping_pairs.add(pair)
 
         if oid not in opportunity_ids:
             add(critical if STRICT_REFERENTIAL_INTEGRITY else warnings, "mapping_unknown_opportunity", f"row {row_number}: {oid}")
-        else:
+        elif is_new_pair:
             mapped_count_by_opportunity[oid] += 1
 
         if not HEX16.fullmatch(signal_id):
@@ -378,9 +438,10 @@ def main():
         prior = mapped_opportunity_by_signal.get(signal_id)
         if STRICT_SINGLE_OPPORTUNITY_PER_SIGNAL and prior and prior != oid:
             add(critical, "signal_mapped_to_multiple_opportunities", f"{signal_id}: {prior}, {oid}")
-        elif signal_id:
+        elif signal_id and is_new_pair:
             mapped_opportunity_by_signal[signal_id] = oid
-        mapped_signal_ids.add(signal_id)
+        if signal_id:
+            mapped_signal_ids.add(signal_id)
 
         if method not in ALLOWED_MATCH_METHODS:
             add(warnings, "unexpected_match_method", f"row {row_number}: {method!r}")
